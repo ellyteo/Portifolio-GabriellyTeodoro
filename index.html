@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Gabrielly Teodoro | Portfólio Criativo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            background: #fef9f4;  /* Tom suave quente */
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Inter', sans-serif;
+            color: #2c2a2a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+ 
+        /* container principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+ 
+        /* header / hero */
+        .hero {
+            background: linear-gradient(135deg, #fad0c4 0%, #fad0c4 30%, #ffe6e0 100%);
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.2s;
+        }
+ 
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #9b2c1d, #d45a3a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+ 
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #5e3a2e;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            border-top: 2px dashed #e2b69b;
+            display: inline-block;
+            padding-top: 0.5rem;
+        }
+ 
+        /* cards grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+ 
+        .card {
+            background: white;
+            border-radius: 2rem;
+            padding: 1.5rem 1.8rem;
+            transition: transform 0.25s ease, box-shadow 0.25s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+            border: 1px solid #fff3ed;
+        }
+ 
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+            border-color: #ffded0;
+        }
+ 
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 6px solid #e0896b;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #3d2a22;
+        }
+ 
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #b45a3f;
+            margin: 1rem 0 0.5rem 0;
+        }
+ 
+        .info-badge {
+            display: inline-block;
+            background: #faefe9;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #b45a3f;
+            margin-bottom: 1rem;
+        }
+ 
+        /* listas */
+        .list-styled {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+ 
+        .list-styled li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.4rem;
+            position: relative;
+        }
+ 
+        .list-styled li::before {
+            content: "✦";
+            color: #e0896b;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+ 
+        .inline-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+        }
+ 
+        .pill {
+            background: #f9e4db;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #7e4b36;
+        }
+ 
+        /* experiencia / trabalho */
+        .job {
+            margin-bottom: 1.4rem;
+            border-bottom: 1px solid #f5e1d6;
+            padding-bottom: 1rem;
+        }
+ 
+        .job:last-child {
+            border-bottom: none;
+        }
+ 
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2c241f;
+        }
+ 
+        .job-date {
+            font-size: 0.8rem;
+            color: #af7b64;
+            margin-bottom: 0.4rem;
+        }
+ 
+        /* contato / footer */
+        .contact-section {
+            background: #fff6f1;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid #fee6dd;
+        }
+ 
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+ 
+        .contact-item {
+            background: white;
+            border-radius: 60px;
+            padding: 0.6rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: all 0.2s;
+        }
+ 
+        .contact-item:hover {
+            background: #e0896b;
+            color: white;
+            transform: scale(1.02);
+        }
+ 
+        .contact-item span:first-child {
+            font-size: 1.2rem;
+        }
+ 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+ 
+        .footer-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #b58d7a;
+            border-top: 1px solid #ffebe2;
+            padding-top: 1.5rem;
+        }
+ 
+        /* curiosidades / hobbies em grid interno */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+ 
+        @media (max-width: 640px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .container {
+                padding: 1.2rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+ 
+        .quote {
+            font-style: italic;
+            background: #fef2ec;
+            padding: 0.8rem 1rem;
+            border-radius: 1.2rem;
+            margin-top: 1rem;
+            color: #774f3c;
+            border-left: 3px solid #e0896b;
+        }
+    </style>
+</head>
+<body>
+ 
+<div class="container">
+    <!-- Hero principal -->
+    <div class="hero">
+        <h1>meu PORTFOLIO ✦</h1>
+        <p class="tagline">Gabrielly Teodoro — criatividade, código e paixão por arte</p>
+        <div style="margin-top: 1rem;">
+            <span class="info-badge">📌 Joinville • SC</span>
+            <span class="info-badge">🎂 18 anos</span>
+        </div>
+    </div>
+ 
+<!-- SEÇÃO CARROSSEL DE FOTOS -->
+<div style="margin: 3rem 0 2rem 0;">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.8rem; font-weight: 600; color: #3d2a22; display: inline-block; border-left: 6px solid #e0896b; padding-left: 1rem;">📸</h2>
+    </div>
+ 
+    <div style="max-width: 800px; margin: 0 auto; background: rgba(255, 248, 242, 0.7); border-radius: 2rem; padding: 1rem; box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);">
+        <div style="position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; background: #f9e3d8;" id="carrosselContainer">
+            <div style="display: flex; transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);" id="slidesWrapper">
+                <!-- Foto 1 -->
+                <div style="flex: 0 0 100%; display: flex; justify-content: center; align-items: center; min-height: 380px; position: relative;">
+                    <img src="./assets/Mídia.jpg" alt="Momento criativo" style="width: 100%; height: auto; max-height: 450px; object-fit: cover; display: block; border-radius: 1rem;">
+                    <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.55); backdrop-filter: blur(5px); padding: 0.3rem 1rem; border-radius: 60px; color: white; font-size: 0.8rem; font-weight: 500;">✨</div>
+                </div>
+                <!-- Foto 2 -->
+                <div style="flex: 0 0 100%; display: flex; justify-content: center; align-items: center; min-height: 380px; position: relative;">
+                    <img src="./assets/Mídia (1).jpg" alt="Leitura e livros" style="width: 100%; height: auto; max-height: 450px; object-fit: cover; display: block; border-radius: 1rem;">
+                    <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.55); backdrop-filter: blur(5px); padding: 0.3rem 1rem; border-radius: 60px; color: white; font-size: 0.8rem; font-weight: 500;"></div>
+                </div>
+                <!-- Foto 3 -->
+                <div style="flex: 0 0 100%; display: flex; justify-content: center; align-items: center; min-height: 380px; position: relative;">
+                    <img src="./assets/Mídia (2).jpg" alt="Cosplay e apresentação" style="width: 100%; height: auto; max-height: 450px; object-fit: cover; display: block; border-radius: 1rem;">
+                    <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.55); backdrop-filter: blur(5px); padding: 0.3rem 1rem; border-radius: 60px; color: white; font-size: 0.8rem; font-weight: 500;"></div>
+                </div>
+            </div>
+ 
+            <!-- Botões -->
+            <button style="position: absolute; top: 50%; left: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; font-weight: bold; color: #b45a3f; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.2s; z-index: 10;" id="btnPrevCarrossel" onmouseover="this.style.background='#e0896b'; this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.9)'; this.style.color='#b45a3f'">❮</button>
+            <button style="position: absolute; top: 50%; right: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; font-weight: bold; color: #b45a3f; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.2s; z-index: 10;" id="btnNextCarrossel" onmouseover="this.style.background='#e0896b'; this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.9)'; this.style.color='#b45a3f'">❯</button>
+        </div>
+ 
+        <!-- Indicadores (dots) -->
+        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 1.2rem;" id="indicadoresCarrossel">
+            <span style="width: 12px; height: 12px; background-color: #b45a3f; border-radius: 20px; cursor: pointer; transition: all 0.2s; width: 28px;" data-dot="0"></span>
+            <span style="width: 12px; height: 12px; background-color: #e2bcab; border-radius: 50%; cursor: pointer; transition: all 0.2s;" data-dot="1"></span>
+            <span style="width: 12px; height: 12px; background-color: #e2bcab; border-radius: 50%; cursor: pointer; transition: all 0.2s;" data-dot="2"></span>
+        </div>
+    </div>
+</div>
+ 
+<script>
+    (function() {
+        const slidesWrapper = document.getElementById('slidesWrapper');
+        const slides = document.querySelectorAll('#slidesWrapper > div');
+        const btnPrev = document.getElementById('btnPrevCarrossel');
+        const btnNext = document.getElementById('btnNextCarrossel');
+        const dots = document.querySelectorAll('#indicadoresCarrossel span');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        
+        function updateCarrossel() {
+            const offset = - (currentIndex * 100);
+            slidesWrapper.style.transform = `translateX(${offset}%)`;
+            
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.style.backgroundColor = '#b45a3f';
+                    dot.style.width = '28px';
+                    dot.style.borderRadius = '20px';
+                } else {
+                    dot.style.backgroundColor = '#e2bcab';
+                    dot.style.width = '12px';
+                    dot.style.borderRadius = '50%';
+                }
+            });
+        }
+        
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarrossel();
+        }
+        
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarrossel();
+        }
+        
+        if (btnNext) btnNext.addEventListener('click', nextSlide);
+        if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+        
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarrossel();
+            });
+        });
+        
+        // Suporte a teclado
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                e.preventDefault();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                e.preventDefault();
+            }
+        });
+        
+        // Toque mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const carrosselElement = document.getElementById('carrosselContainer');
+        
+        if (carrosselElement) {
+            carrosselElement.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            
+            carrosselElement.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const threshold = 50;
+                if (touchEndX < touchStartX - threshold) nextSlide();
+                if (touchEndX > touchStartX + threshold) prevSlide();
+            }, {passive: true});
+        }
+        
+        updateCarrossel();
+    })();
+</script>
+ 
+    
+    <!-- grid principal: cards com todas as informações -->
+    <div class="grid">
+        <!-- Sobre mim + curiosidade pessoal -->
+        <div class="card">
+            <h2>✨ Sobre mim</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 0.8rem;">Olá! Sou <strong>Gabrielly Teodoro</strong>, tenho 18 anos e moro em Joinville - SC. </p>
+            <p>Sou movida por aprendizado contínuo, tecnologia e expressões artísticas. Mesmo com uma <strong>cicatriz no rosto</strong> que passa despercebida, ela me lembra histórias e força. Além disso, sou apaixonada por <strong>cosplay</strong> e já tive a honra de me apresentar no <strong>Bolshoi</strong> — uma experiência inesquecível!</p>
+            <div class="quote">
+                💭 “Coleciono livros, mangás e experiências. Cada detalhe conta uma parte da minha jornada.”
+            </div>
+        </div>
+ 
+        <!-- Formações + escolas e cursos -->
+        <div class="card">
+            <h2>📚 Formações</h2>
+            <div>
+                <div class="job">
+                    <div class="job-title">🎓 Assistente Adm.</div>
+                    <div>Senai | Previsão: ago/2027</div>
+                </div>
+                <div class="job">
+                    <div class="job-title">💻 Técnico em Informática para Internet</div>
+                    <div>Senac | Previsão: abr/2027</div>
+                </div>
+                <div class="job">
+                    <div class="job-title">📊 Técnico em Administração</div>
+                    <div>Senac | Concluído out/2024</div>
+                </div>
+                <div class="job">
+                    <div class="job-title">🎨 Design Gráfico (online)</div>
+                    <div>Evolua | Previsão: dez/2026</div>
+                </div>
+                <div><strong>Cursos complementares:</strong></div>
+                <ul class="list-styled" style="margin-top: 0.3rem;">
+                    <li>E.E.B. Profª Nair da Silva Pinheiro — Concluído em 2025</li>
+                    <li>Téc. Adm. (Senac) • Gestão de pessoas</li>
+                    <li>Gestão Empresarial (Speed Treinamentos)</li>
+                    <li>Qualificação Imediata em Adm (Cebrac) 8h</li>
+                    <li>Inglês Intermediário (KNN Idiomas, 168h)</li>
+                </ul>
+            </div>
+        </div>
+ 
+<!-- Curiosidades + coleções -->
+        <div class="card">
+            <h2>✨ Curiosidades</h2>
+            <ul class="list-styled">
+                <li>🔍 Tenho uma cicatriz sutil no rosto, quase imperceptível, mas carrego com orgulho</li>
+                <li>🤹‍♀️ Cosplayer nas horas vagas — transformação e arte</li>
+                <li>📚 Colecionadora de livros e mangás; minha estante só cresce</li>
+                <li>🩰 Experiência no palco do Teatro Bolshoi no Brasil, um marco artístico</li>
+                <li>🎨 Designer gráfica em formação, criando identidades visuais</li>
+                <li>🌐 Técnica em Informática para Internet, combinando lógica e criatividade</li>
+            </ul>
+        </div>
+
+        <!-- Experiências profissionais + atual -->
+        <div class="card">
+            <h2>💼 Experiências</h2>
+            <div class="job">
+                <div class="job-title">📞 Projeto de seleção - Operador de Telemarketing</div>
+                <div class="job-date">Fonte Life Purificadores | Jan 2025</div>
+                <div>Ligações ativas (vendas) e receptivas (suporte, cobrança). Desenvolvimento de tom claro e gestão de tempo com registro em sistema.</div>
+            </div>
+            <div class="job">
+                <div class="job-title">📈 Estágio em Gestão e Comercial</div>
+                <div class="job-date">Marmoraria Arte Final | Fev 2025 - Mai 2025</div>
+                <div>Gestão de Instagram, criação de conteúdo, interpretação de plantas baixas, cálculo de materiais (m²) e coordenação pós-venda.</div>
+            </div>
+            <div class="job">
+                <div class="job-title">🔄 Atuações adicionais</div>
+                <div>Freelancer • Socialmedia </div>
+            </div>
+            <div class="job">
+                <div class="job-title">⚙️ Atualmente</div>
+                <div><strong>Nidec - SAC Usinagem</strong> </div>
+        </div>
+ 
+<!-- Segunda linha extra com informações adicionais como 'outros cursos + formações complementares' (já incluso nos cards, mas vamos reafirmar com um bloco bonito) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; margin: 2rem 0 1.5rem;">
+        <div style="flex: 1; min-width: 220px; background: white; border-radius: 1.5rem; padding: 1.2rem; box-shadow: 0 6px 14px rgba(0,0,0,0.02);">
+            <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">📜</div>
+            <div style="font-weight: 700;">Cursos & Certificados</div>
+            <ul class="list-styled" style="margin-top: 0.5rem;">
+                <li>Assistente Administrativo (Senai)</li>
+                <li>Téc. em Administração (Senac)</li>
+                <li>Gestão de pessoas (Speed)</li>
+                <li>Design Gráfico (online)</li>
+                <li>Qualificação Imediata em Adm Cebrac</li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 220px; background: white; border-radius: 1.5rem; padding: 1.2rem; box-shadow: 0 6px 14px rgba(0,0,0,0.02);">
+            <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🎯</div>
+            <div style="font-weight: 700;">Atuação atual</div>
+            <p><strong>Nidec - SAC Usinagem</strong><br>Atendimento e processos na área de usinagem, combinando organização industrial e foco no cliente.</p>
+        </div>
+    </div>   
+ 
+       
+    </div>
+ 
+     <!-- Hobbies e comida favorita + detalhes interessantes -->
+        <div class="card">
+            <h2>🎨 Hobbies & Paixões</h2>
+            <div class="two-columns">
+                <div>
+                    <ul class="list-styled">
+                        <li>📸 Fotografia</li>
+                        <li>🎧 Escutar música</li>
+                        <li>🎨 Pintar</li>
+                        <li>🎮 Jogar</li>
+                        <li>📖 Ler (mangás & livros)</li>
+                        <li>🪡 Cosplay</li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="quote" style="margin-top: 1rem;">
+                🎭 "Já me apresentei no Bolshoi — uma experiência mágica que mistura dança e emoção até hoje na memória."
+            </div>
+        </div>
+ 
+ <!-- idiomas + competências extras -->
+        <div class="card">
+            <h2>🌎 Idiomas & Skills</h2>
+            <div style="margin-bottom: 0.8rem;">
+                <div><strong>🇺🇸 Inglês:</strong> Intermediário (KNN Idiomas | 168h)</div>
+                <div><strong>🇪🇸 Espanhol:</strong> Básico</div>
+                <div><strong>🇧🇷 Português:</strong> Nativo</div>
+            </div>
+            <h3>⚡ Competências</h3>
+            <div class="inline-list">
+                <span class="pill">Design Gráfico</span>
+                <span class="pill">Gestão de pessoas</span>
+                <span class="pill">Atendimento ao cliente</span>
+                <span class="pill">Telemarketing</span>
+                <span class="pill">Pacote Office avançado</span>
+                <span class="pill">Criação de conteúdo</span>
+                <span class="pill">Organização e liderança</span>
+                <span class="pill">Aprendizagem rápida</span>
+                <span class="pill">Criatividade</span>
+                <span class="pill">Liderança</span>
+                <span class="pill">Pacote Office</span>
+            </div>
+            <div class="quote" style="margin-top: 1rem;">
+                🎯 “Aprendizagem rápida e criatividade são meus motores para crescer profissionalmente e pessoalmente.”
+            </div>
+        </div>
+
+    <!-- Contato e rodapé com base nas informações do PDF -->
+    <div class="contact-section">
+        <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem;">📬 Vamos conversar?</h2>
+        <p style="margin-bottom: 1rem;">Fique à vontade para entrar em contato — seja para trabalho freelance, networking ou trocar ideias sobre cosplay e livros!</p>
+        <div class="contact-flex">
+            <div class="contact-item">
+                <span>📧</span> <span>gabitsilva1204@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span>📱</span> <span>(47) 98471-8267</span>
+            </div>
+            <div class="contact-item">
+                <span>📍</span> <span>Joinville - SC, Estrada Cubatãozinho, 1000</span>
+            </div>
+        </div>
+        <div style="margin-top: 1.5rem; font-size: 0.9rem;">
+            🌟 Disponível para oportunidades de estágio, projetos de design e desafios criativos.
+        </div>
+    </div>
+ 
+    <div class="footer-note">
+        ✦ Portfólio Gabrielly Teodoro da Silva — 18 anos, eterna aprendiz & entusiasta de tecnologia e artes ✦
+        <br>Design inspirado na minha jornada: da informática ao palco, do cosplay às linhas de código.
+    </div>
+</div>
+ 
+</body>
+</html>
+ 
+ 
